@@ -27,7 +27,7 @@ services:
       test: ["CMD", "curl", "-f", "http://localhost:9001"]
       interval: 1m30s
       timeout: 10s
-      retries: 3
+
 
   # The container that runs the database (mysql).
   db:
