@@ -6,7 +6,7 @@ services:
     build: .
     image: ptbpst1/etherpad:latest
     depends_on:
-      - db
+      - etherpad-db
     ports:
       - ${APP_PORT}:9001
     # Default values defined in .env file.
@@ -30,7 +30,7 @@ services:
 
 
   # The container that runs the database (mysql).
-  db:
+  etherpad-db:
     image: "mysql:5.7"
     container_name: ${DB_HOST}
     volumes:
