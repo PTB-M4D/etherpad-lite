@@ -13,7 +13,7 @@ LABEL maintainer="Björn Ludwig, https://github.com/PTB-PSt1/etherpad-lite"
 #
 # EXAMPLE:
 #   ETHERPAD_PLUGINS="ep_codepad ep_author_neat"
-ARG ETHERPAD_PLUGINS="ep_autocomp bcrypt ep_hash_auth ep_adminpads ep_export_cp_html_image ep_colors ep_headings ep_align ep_subscript ep_superscript ep_timesliderdiff ep_comments_page ep_copy_paste_images"
+ARG ETHERPAD_PLUGINS="ep_autocomp bcrypt ep_hash_auth ep_adminpads ep_export_cp_html_image ep_colors ep_headings ep_align ep_subscript ep_superscript ep_timesliderdiff ep_comments_page ep_copy_paste_images scrypt argon2"
 
 # By default, Etherpad container is built and run in "production" mode. This is
 # leaner (development dependencies are not installed) and runs faster (among
