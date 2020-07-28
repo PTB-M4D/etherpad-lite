@@ -5,7 +5,7 @@
 # Author: muxator
 
 FROM node:10-buster-slim
-LABEL maintainer="Etherpad team, https://github.com/ether/etherpad-lite"
+LABEL maintainer="Björn Ludwig, https://github.com/PTB-PSt1/etherpad-lite"
 
 # plugins to install while building the container. By default no plugins are
 # installed.
@@ -13,7 +13,7 @@ LABEL maintainer="Etherpad team, https://github.com/ether/etherpad-lite"
 #
 # EXAMPLE:
 #   ETHERPAD_PLUGINS="ep_codepad ep_author_neat"
-ARG ETHERPAD_PLUGINS=
+ARG ETHERPAD_PLUGINS="ep_autocomp bcrypt ep_hash_auth ep_adminpads ep_export_cp_html_image ep_colors ep_headings ep_align ep_subscript ep_superscript ep_timesliderdiff ep_comments_page ep_copy_paste_images"
 
 # By default, Etherpad container is built and run in "production" mode. This is
 # leaner (development dependencies are not installed) and runs faster (among
