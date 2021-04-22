@@ -13,7 +13,8 @@ LABEL maintainer="Björn Ludwig, https://github.com/PTB-PSt1/etherpad-lite"
 #
 # EXAMPLE:
 #   ETHERPAD_PLUGINS="ep_codepad ep_author_neat"
-ARG ETHERPAD_PLUGINS="ep_autocomp bcrypt ep_hash_auth ep_adminpads ep_export_cp_html_image ep_colors ep_headings ep_align ep_subscript ep_superscript ep_timesliderdiff ep_comments_page ep_copy_paste_images argon2"
+#ARG ETHERPAD_PLUGINS="ep_autocomp bcrypt ep_hash_auth ep_adminpads ep_export_cp_html_image ep_colors ep_headings ep_align ep_subscript ep_superscript ep_timesliderdiff ep_comments_page ep_copy_paste_images argon2"
+ARG ETHERPAD_PLUGINS=
 
 # Control whether abiword will be installed, enabling exports to DOC/PDF/ODT formats.
 # By default, it is not installed.
