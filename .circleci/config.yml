@@ -75,7 +75,8 @@ jobs:
           name: Test image
           command: |
             docker run -d ${DOCKER_ORG}/${IMAGE_NAME}:latest
-            docker ps | grep latest
+            sleep 1
+            docker ps | grep ${IMAGE_NAME}
 
       # Push image.
       - run:
