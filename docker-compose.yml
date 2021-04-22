@@ -10,14 +10,12 @@ services:
     env_file:
       - ./etherpad.env
     expose:
-      - 9001
+      - ${PORT}
     # Default values defined in .env file.
     # The DB_TYPE/DB_HOST/DB_PORT/DB_NAME/DB_USER/DB_PASS/DB_CHARSET variables are
     # used in the settings.json.docker.
     environment:
-      - DB_TYPE=${DB_TYPE}
       - DB_HOST=${DB_HOST}
-      - DB_PORT=${DB_PORT}
       - DB_NAME=${DB_NAME}
       - DB_USER=${DB_USER}
       - DB_PASS=${DB_PASS}
@@ -25,7 +23,7 @@ services:
       - bridge
     restart: always
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:9001"]
+      test: ["CMD", "curl", "-f", "http://localhost:${PORT}"]
       interval: 1m30s
       timeout: 10s
 
@@ -38,8 +36,6 @@ services:
       - type: volume
         source: db
         target: /var/lib/mysql
-    env_file:
-      - ./db.env
     # Configure the MySQL database and create a user with provided name/password.
     # See https://hub.docker.com/_/mysql/ for more details.
     # Default values defined in .env file.
@@ -48,7 +44,8 @@ services:
       - MYSQL_USER=${DB_USER}
       - MYSQL_PASSWORD=${DB_PASS}
       - MYSQL_DATABASE=${DB_NAME}
-    command: ['mysqld', '--character-set-server=$${DB_CHARSET}',
+      - DB_CHARSET=${DB_CHARSET}
+    command: ['mysqld', '--character-set-server=${DB_CHARSET}',
               '--collation-server=utf8mb4_unicode_ci']
     networks:
       - bridge
