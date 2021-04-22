@@ -21,8 +21,6 @@ services:
       - DB_NAME=${DB_NAME}
       - DB_USER=${DB_USER}
       - DB_PASS=${DB_PASS}
-      - TITLE=${TITLE}
-      - ADMIN_PASSWORD=${ADMIN_PASSWORD}
     networks:
       - bridge
     restart: always
