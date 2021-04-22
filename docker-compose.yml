@@ -8,7 +8,6 @@ services:
     depends_on:
       - etherpad-db
     env_file:
-      - ./db.env
       - ./etherpad.env
     expose:
       - 9001
@@ -22,7 +21,6 @@ services:
       - DB_NAME=${DB_NAME}
       - DB_USER=${DB_USER}
       - DB_PASS=${DB_PASS}
-      - DB_CHARSET=${DB_CHARSET}
       - TITLE=${TITLE}
       - ADMIN_PASSWORD=${ADMIN_PASSWORD}
     networks:
@@ -52,7 +50,8 @@ services:
       - MYSQL_USER=${DB_USER}
       - MYSQL_PASSWORD=${DB_PASS}
       - MYSQL_DATABASE=${DB_NAME}
-    command: ['mysqld', '--character-set-server=${DB_CHARSET}', '--collation-server=utf8mb4_unicode_ci']
+    command: ['mysqld', '--character-set-server=$${DB_CHARSET}',
+              '--collation-server=utf8mb4_unicode_ci']
     networks:
       - bridge
     restart: always
