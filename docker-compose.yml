@@ -9,6 +9,8 @@ services:
       - etherpad-db
     ports:
       - ${APP_PORT}:9001
+    env_file:
+      - ./db.env
     # Default values defined in .env file.
     # The DB_TYPE/DB_HOST/DB_PORT/DB_NAME/DB_USER/DB_PASS/DB_CHARSET variables are
     # used in the settings.json.docker.
@@ -37,6 +39,8 @@ services:
       - type: volume
         source: db
         target: /var/lib/mysql
+    env_file:
+      - ./db.env
     # Configure the MySQL database and create a user with provided name/password.
     # See https://hub.docker.com/_/mysql/ for more details.
     # Default values defined in .env file.
