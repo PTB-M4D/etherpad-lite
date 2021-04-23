@@ -46,7 +46,8 @@ services:
       - MYSQL_DATABASE=${DB_NAME}
       - DB_CHARSET=${DB_CHARSET}
     command: ['mysqld', '--character-set-server=${DB_CHARSET}',
-              '--collation-server=utf8mb4_unicode_ci']
+              '--collation-server=utf8mb4_unicode_ci',
+              '--explicit_defaults_for_timestamp=ON']
     networks:
       - bridge
     restart: always
