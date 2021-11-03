@@ -5,7 +5,7 @@
 # Author: muxator
 
 FROM node:14-buster-slim
-LABEL maintainer="Björn Ludwig, https://github.com/PTB-PSt1/etherpad-lite"
+LABEL maintainer="Björn Ludwig, https://github.com/PTB-M4D/etherpad-lite"
 
 # plugins to install while building the container. By default no plugins are
 # installed.
